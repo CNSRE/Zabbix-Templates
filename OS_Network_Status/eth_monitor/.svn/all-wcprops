@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/sys_support/!svn/ver/50193/puppet/config/product/weibo_img/files/inc_zabbix_agent/data0/scripts/zabbix/eth_monitor
+END
+eth_info.conf
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/sys_support/!svn/ver/50016/puppet/config/product/weibo_img/files/inc_zabbix_agent/data0/scripts/zabbix/eth_monitor/eth_info.conf
+END
+eth_info.py
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/sys_support/!svn/ver/52464/puppet/config/product/weibo_img/files/inc_zabbix_agent/data0/scripts/zabbix/eth_monitor/eth_info.py
+END
