@@ -14,7 +14,7 @@ Zabbix-Templates
 *	...
 
 ### 使用方法:
-这里使用的template基本是使用zabbix trapper的方式通过程序收集数据，通过zabbix_sendre来发送数据的方式。
+这里使用的template基本是使用zabbix trapper的方式通过程序收集数据，通过zabbix_sender来发送数据的方式。
 使用这种方式可以有效的减轻zabbix server的压力，提高zabbix的性能。
 
 1.需要导入xxx.xml模板文件。
