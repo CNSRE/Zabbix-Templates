@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>2.0</version>
-    <date>2015-07-02T07:38:10Z</date>
+    <date>2015-08-25T08:59:05Z</date>
     <groups>
         <group>
             <name>Templates</name>
@@ -9,8 +9,8 @@
     </groups>
     <templates>
         <template>
-            <template>Template APP Nginx Stats</template>
-            <name>Template APP Nginx Stats</name>
+            <template>Template App Nginx Status</template>
+            <name>Template App Nginx Status</name>
             <groups>
                 <group>
                     <name>Templates</name>
@@ -28,7 +28,7 @@
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>ngx_accepted_connections</key>
+                    <key>accepted_connections</key>
                     <delay>0</delay>
                     <history>7</history>
                     <trends>365</trends>
@@ -70,7 +70,7 @@
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>ngx_active_connections</key>
+                    <key>active_connections</key>
                     <delay>0</delay>
                     <history>7</history>
                     <trends>365</trends>
@@ -107,12 +107,54 @@
                     <valuemap/>
                 </item>
                 <item>
+                    <name>Nginx average response time</name>
+                    <type>2</type>
+                    <snmp_community/>
+                    <multiplier>0</multiplier>
+                    <snmp_oid/>
+                    <key>average_response_time</key>
+                    <delay>0</delay>
+                    <history>7</history>
+                    <trends>365</trends>
+                    <status>0</status>
+                    <value_type>0</value_type>
+                    <allowed_hosts/>
+                    <units>ms</units>
+                    <delta>0</delta>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <formula>1</formula>
+                    <delay_flex/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <data_type>0</data_type>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description/>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>Nginx</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                </item>
+                <item>
                     <name>Nginx handled_connections per sec</name>
                     <type>2</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>ngx_handled_connections</key>
+                    <key>handled_connections</key>
                     <delay>0</delay>
                     <history>7</history>
                     <trends>365</trends>
@@ -154,7 +196,7 @@
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>ngx_handled_requests</key>
+                    <key>handled_requests</key>
                     <delay>0</delay>
                     <history>7</history>
                     <trends>365</trends>
@@ -196,7 +238,7 @@
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>ngx_reading</key>
+                    <key>reading</key>
                     <delay>0</delay>
                     <history>7</history>
                     <trends>365</trends>
@@ -238,7 +280,7 @@
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>ngx_waiting</key>
+                    <key>waiting</key>
                     <delay>0</delay>
                     <history>7</history>
                     <trends>365</trends>
@@ -280,7 +322,7 @@
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>ngx_writing</key>
+                    <key>writing</key>
                     <delay>0</delay>
                     <history>7</history>
                     <trends>365</trends>
@@ -322,7 +364,7 @@
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>proc.num[httpd]</key>
+                    <key>proc.num[nginx]</key>
                     <delay>120</delay>
                     <history>7</history>
                     <trends>365</trends>
@@ -362,16 +404,70 @@
                     <value>http://127.0.0.1:10061/nginx_status</value>
                 </macro>
             </macros>
-            <templates/>
-            <screens/>
+            <templates>
+                <template>
+                    <name>Template check token</name>
+                </template>
+            </templates>
+            <screens>
+                <screen>
+                    <name>nginx status summary</name>
+                    <hsize>2</hsize>
+                    <vsize>1</vsize>
+                    <screen_items>
+                        <screen_item>
+                            <resourcetype>0</resourcetype>
+                            <width>500</width>
+                            <height>100</height>
+                            <x>0</x>
+                            <y>0</y>
+                            <colspan>1</colspan>
+                            <rowspan>1</rowspan>
+                            <elements>0</elements>
+                            <valign>0</valign>
+                            <halign>2</halign>
+                            <style>0</style>
+                            <url/>
+                            <dynamic>0</dynamic>
+                            <sort_triggers>0</sort_triggers>
+                            <resource>
+                                <name>Nginx - Connections and Requests status</name>
+                                <host>Template App Nginx Status</host>
+                            </resource>
+                            <application/>
+                        </screen_item>
+                        <screen_item>
+                            <resourcetype>0</resourcetype>
+                            <width>500</width>
+                            <height>115</height>
+                            <x>1</x>
+                            <y>0</y>
+                            <colspan>1</colspan>
+                            <rowspan>1</rowspan>
+                            <elements>0</elements>
+                            <valign>0</valign>
+                            <halign>1</halign>
+                            <style>0</style>
+                            <url/>
+                            <dynamic>0</dynamic>
+                            <sort_triggers>0</sort_triggers>
+                            <resource>
+                                <name>Nginx - Threads status</name>
+                                <host>Template App Nginx Status</host>
+                            </resource>
+                            <application/>
+                        </screen_item>
+                    </screen_items>
+                </screen>
+            </screens>
         </template>
     </templates>
     <triggers>
         <trigger>
-            <expression>{Template APP Nginx Stats:proc.num[httpd].last(0)}=0</expression>
+            <expression>{Template App Nginx Status:proc.num[nginx].last(0)}=0</expression>
             <name>Nginx is not running on {HOSTNAME}</name>
             <url/>
-            <status>1</status>
+            <status>0</status>
             <priority>4</priority>
             <description>Nginx is not running.&#13;
       &#13;
@@ -412,8 +508,8 @@
                     <calc_fnc>4</calc_fnc>
                     <type>0</type>
                     <item>
-                        <host>Template APP Nginx Stats</host>
-                        <key>ngx_accepted_connections</key>
+                        <host>Template App Nginx Status</host>
+                        <key>accepted_connections</key>
                     </item>
                 </graph_item>
                 <graph_item>
@@ -424,8 +520,8 @@
                     <calc_fnc>4</calc_fnc>
                     <type>0</type>
                     <item>
-                        <host>Template APP Nginx Stats</host>
-                        <key>ngx_handled_connections</key>
+                        <host>Template App Nginx Status</host>
+                        <key>handled_connections</key>
                     </item>
                 </graph_item>
                 <graph_item>
@@ -436,8 +532,20 @@
                     <calc_fnc>4</calc_fnc>
                     <type>0</type>
                     <item>
-                        <host>Template APP Nginx Stats</host>
-                        <key>ngx_handled_requests</key>
+                        <host>Template App Nginx Status</host>
+                        <key>handled_requests</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>3</sortorder>
+                    <drawtype>0</drawtype>
+                    <color>C800C8</color>
+                    <yaxisside>1</yaxisside>
+                    <calc_fnc>2</calc_fnc>
+                    <type>0</type>
+                    <item>
+                        <host>Template App Nginx Status</host>
+                        <key>average_response_time</key>
                     </item>
                 </graph_item>
             </graph_items>
@@ -468,8 +576,8 @@
                     <calc_fnc>4</calc_fnc>
                     <type>0</type>
                     <item>
-                        <host>Template APP Nginx Stats</host>
-                        <key>ngx_writing</key>
+                        <host>Template App Nginx Status</host>
+                        <key>writing</key>
                     </item>
                 </graph_item>
                 <graph_item>
@@ -480,8 +588,8 @@
                     <calc_fnc>4</calc_fnc>
                     <type>0</type>
                     <item>
-                        <host>Template APP Nginx Stats</host>
-                        <key>ngx_reading</key>
+                        <host>Template App Nginx Status</host>
+                        <key>reading</key>
                     </item>
                 </graph_item>
                 <graph_item>
@@ -492,8 +600,8 @@
                     <calc_fnc>4</calc_fnc>
                     <type>0</type>
                     <item>
-                        <host>Template APP Nginx Stats</host>
-                        <key>ngx_waiting</key>
+                        <host>Template App Nginx Status</host>
+                        <key>waiting</key>
                     </item>
                 </graph_item>
             </graph_items>
