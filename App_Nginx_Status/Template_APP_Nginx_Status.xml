@@ -404,11 +404,6 @@
                     <value>http://127.0.0.1:10061/nginx_status</value>
                 </macro>
             </macros>
-            <templates>
-                <template>
-                    <name>Template check token</name>
-                </template>
-            </templates>
             <screens>
                 <screen>
                     <name>nginx status summary</name>
